@@ -1,0 +1,13 @@
+# Data (see README for how to download)
+data/*.csv
+
+# Knit outputs
+*.html
+*.docx
+*_files/
+*_cache/
+
+# R session files
+.Rhistory
+.RData
+.Rproj.user/

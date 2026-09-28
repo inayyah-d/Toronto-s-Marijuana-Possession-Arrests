@@ -24,6 +24,11 @@ library(DAAG)
 library(knitr)
 ```
 
+```{r config, include=FALSE}
+# Folder containing Arrests.csv (override with the DATA_DIR environment variable)
+DATA_DIR <- Sys.getenv("DATA_DIR", "data")
+```
+
 ------------------------------------------------------------------------
 
 #### State the problem and describe the data set
@@ -55,8 +60,7 @@ Variables "released", "color", "sex", "employed", and "citizens" are categorical
 #### Fit a logistic regression model with all predictors
 
 ```{r}
-setwd('/Users/donainayyah/Desktop/SPRING 2023/MATH 449/Final Project/')
-arrests = read.csv("Arrests.csv", header=TRUE)
+arrests = read.csv(file.path(DATA_DIR, "Arrests.csv"), header=TRUE)
 
 # Transform response variable to binary
 arrests$released = ifelse(arrests$released == "Yes", 1, 0)
